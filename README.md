@@ -14,7 +14,7 @@ A jQuery plugin to create an animation effect for typing text
 ```<style type="text/css">
         html,
         body {
-            font-family: 'Roboto', sans-serif;
+            
         }
         
         .output {
@@ -35,10 +35,11 @@ A jQuery plugin to create an animation effect for typing text
         }
         
         .txtBox {
+            font-family: 'Roboto', sans-serif;
             width: auto;
             height: auto;
-            color: red;
-            font-size: 16px;
+            color: #f8b82e;
+            font-size: 25px;
             text-align: center;
             display: inline-block;
             text-rendering: auto;
@@ -85,39 +86,36 @@ A jQuery plugin to create an animation effect for typing text
             transition: transform 0.5s ease;
         }
         
-        #myTextarea {
+        .Textarea {
             font-family: 'Roboto', sans-serif;
-            opacity: 0;
+            opacity: 1;
             position: absolute;
-            color: red;
+            color: #f8b82e;
             background: transparent;
-             -webkit-text-fill-color: transparent;
-            font-size: 16px;
+            -webkit-text-fill-color: transparent;
+            font-size: 25px;
             padding: 0px;
             margin: 0em;
-            color: blue;
+            color: #00f5ff;
             z-index: 10;
             resize: none;
             width: 100%;
-            height: 100%;
             white-space: pre-line !important;
-          
-           
+            outline: none;
+            border-width: 0px;
+            border: none;
+            border-bottom: 1px solid rgb(17, 17, 17);
+            text-transform: uppercase;
         }
         
-        #form {
-            width: 300px;
-            height: 20px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -150px;
-            margin-top: -150px;
+        .form {
+            width: 100%;
+            height: 30px;
+            position: relative;
             border: 1px solid #e4e4e4;
-          
         }
 
-    </style> ```
+    </style>```
 
 
 
