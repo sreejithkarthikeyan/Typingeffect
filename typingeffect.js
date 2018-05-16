@@ -9,7 +9,7 @@
  * sreejith k s
  */
 
-(function($) {
+(function ($) {
 
 
     var myOpt = {};
@@ -17,11 +17,11 @@
     var myFrame;
 
     var _arr = [];
-    $.fn.typingeffect = function(options) {
+    $.fn.typingeffect = function (options) {
 
 
         var opts = $.extend({}, $.fn.typingeffect.defaults, options);
-        return this.each(function() {
+        return this.each(function () {
             $this = this;
             $this.count = 0;
             this.myFrame = this;
@@ -35,7 +35,7 @@
         selecttext: 'Select',
 
     };
-    $.fn.typingeffect.init = function(obj, opts) {
+    $.fn.typingeffect.init = function (obj, opts) {
         $this.obj = obj;
         PluginFeatures.init($this, opts);
     };
@@ -47,7 +47,7 @@
 
     };
     var PluginFeatures = {
-        init: function(obj, opts) {
+        init: function (obj, opts) {
             myOpt = opts;
 
             if ($(obj).length) {
@@ -58,12 +58,12 @@
                 console.log("element does not exists");
             }
         },
-        settextArea: function(obj, opts) {
+        settextArea: function (obj, opts) {
             $(obj).attr('maxlength', opts.maxlength)
             $(obj).closest('.form').append('<div class="frame"></div>');
             $(obj).closest('.frame').width = $(obj).width;
 
-            $(obj).keydown(function(e) {
+            $(obj).keydown(function (e) {
 
                 var currentText = $(this).val();
                 if (currentText.length < opts.maxlength) {
@@ -94,91 +94,55 @@
                     }
                 }
 
-
-
             });
-
-
         },
 
     };
 
     /**/
     var createtypingeffect = {
-
-        create: function(obj, opts, val) {
-
-            $(obj).click(function() {
+        create: function (obj, opts, val) {
+            $(obj).click(function () {
 
                 $(obj).focus();
                 myFrame = $(obj).next('.frame');
                 cursorPosition = $(obj).prop("selectionStart");
                 count = cursorPosition;
-
             });
             myFrame = $(obj).next('.frame');
-
             cursorPosition = $(obj).prop("selectionStart");
-
-
             count = cursorPosition;
-
-
-
             var mask = $('<div>' + val + ' </div>').attr({
                 'class': "txtBox",
                 'id': "txt_" + count
             });
 
-
-            console.log(count + "cursorPosition  :" + cursorPosition)
             if ((count == 0) && (cursorPosition == 0)) {
-
                 var mc = $("#txt_0");
-                console.log(" >>>  " + $(myFrame).children().length)
                 if ($(myFrame).children().length < 1) {
-
                     $(mask).appendTo(myFrame);
 
-
                 } else {
-
-
-
                     $(mask).prependTo(myFrame);
-
-
-
-
                 }
 
             } else {
 
-
                 cursorPosition = $(obj).prop("selectionStart");
-
-
                 count = cursorPosition;
-
                 var mcx = ('#txt_' + (count - 1));
-
-
-
                 var sc = $(myFrame).find(mcx);
-
-
-
                 $(mask).insertAfter(sc);
 
             }
 
             myFrame = $(obj).next('.frame');
-            $(myFrame).find(".txtBox").each(function(i) {
+            $(myFrame).find(".txtBox").each(function (i) {
 
 
                 $(this).attr('id', "txt_" + i);
 
-                setTimeout(function() {
+                setTimeout(function () {
 
                     $(myFrame).find(".txtBox").addClass('animate');
 
@@ -186,10 +150,8 @@
                 }, 300);
             });
 
-
-
         },
-        delete: function(obj, num) {
+        delete: function (obj, num) {
             myFrame = $(obj).next('.frame');
 
 
@@ -209,11 +171,7 @@
 
             } else {
 
-
-
                 cursorPosition = $(obj).prop("selectionStart") - 0;
-
-
 
             }
 
@@ -225,9 +183,9 @@
 
                     transform: 'scale(1,1)',
 
-                }, "fast", function() {
+                }, "fast", function () {
                     $(this).remove();
-                    $(myFrame).find(".txtBox").each(function(i) {
+                    $(myFrame).find(".txtBox").each(function (i) {
 
 
                         $(this).attr('id', "txt_" + i);
@@ -238,16 +196,10 @@
 
             }
 
-
-
-
-
         },
-        remove: function() {
+        remove: function () {
 
         }
     }
-
-
 
 })(jQuery);
